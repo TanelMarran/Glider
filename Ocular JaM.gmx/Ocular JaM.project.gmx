@@ -41,6 +41,7 @@
     <script>scripts\loop_value_range.gml</script>
     <script>scripts\array.gml</script>
     <script>scripts\value_in_range.gml</script>
+    <script>scripts\bezier_point.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shd_RemoveWhite.shader</shader>

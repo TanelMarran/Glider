@@ -224,6 +224,13 @@ for(var i = 0; i &lt; array_length_1d(arr); i++) {
     draw_text(view_xview[0]+32,view_yview[0]+32+32*i,string(arr[i]));
 }
 
+for(i = 0; i &lt;= 1; i += 0.01)  {
+    v = 10;
+    var point =  bezier_point(x,y,(mouse_x+x)*0.5,(mouse_y+y)*0.5-200,mouse_x,mouse_y,i);
+    var pointl = bezier_point(x,y,(mouse_x+x)*0.5,(mouse_y+y)*0.5-200,mouse_x,mouse_y,max(0,i-0.01));
+    draw_line(point[0],point[1],pointl[0],pointl[1]);
+}
+
 
 </string>
           </argument>
