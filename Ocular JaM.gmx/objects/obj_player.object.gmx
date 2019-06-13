@@ -71,6 +71,7 @@ hook_rite = noone //The ID of the current instance of obj_rite_completion - defi
 stat_dir_change = 0 //The base turning speed that will be multiplied by a factor to increase the turning speed exponentially
 dir_change = 5 //How fast the player is turning (?)
 
+invincibility = 0 // if greater than 0, then the player is invincible.
 
 ///These 3 seem uselss?
 //hook_rite_start = 0

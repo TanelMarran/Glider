@@ -52,6 +52,7 @@
     <objects name="Game Control">
       <object>objects\obj_controller</object>
       <object>objects\obj_camera</object>
+      <object>objects\obj_global_variables</object>
     </objects>
     <objects name="Player">
       <object>objects\obj_player</object>
@@ -67,9 +68,13 @@
     <object>objects\test</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\global_variable_init</room>
     <room>rooms\room0</room>
     <room>rooms\room1</room>
   </rooms>
+  <constants number="1">
+    <constant name="g">global</constant>
+  </constants>
   <help>
     <rtf>help.rtf</rtf>
   </help>

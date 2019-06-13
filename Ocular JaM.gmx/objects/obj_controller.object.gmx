@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>gametime = 0
+            <string>///Variables
+
+gametime = 0
 
 points = 0
 </string>
