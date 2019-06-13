@@ -60,7 +60,10 @@ hook_x = 0; //The center of the circle's x
 hook_y = 0; //The center of the circle's y
 hook_stretching = 0; //Saves the speed at which the player started using the slingshot tech. so that after the turn has happened we can reapply the speed.
 hook_stretching_time = 0; //Saves how long the player has been using the slingshot tech. Used in executing the quick turn tech.
-hook_stretching_quickturn_frames = 5; //How many n first frames can be used to activate the quickturn tech.
+
+var qts = 10;
+var qtl = 5
+hook_stretching_quickturn_frames = array(qts,qts+qtl); //How many n first frames can be used to activate the quickturn tech.
 
 hook_rite = noone //The ID of the current instance of obj_rite_completion - defines what circle the player is creating
 
@@ -208,16 +211,16 @@ player_animations()
             <kind>1</kind>
             <string>///Draw Variables
 
-var array;
+var arr;
 
-array[0] = image_index;
-array[1] = dir_act;
-array[2] = dir;
-array[3] = hook_stretching;
-array[4] = dir_change;
+arr[0] = image_index;
+arr[1] = dir_act;
+arr[2] = dir;
+arr[3] = hook_stretching;
+arr[4] = dir_change;
 
-for(var i = 0; i &lt; array_length_1d(array); i++) {
-    draw_text(view_xview[0]+32,view_yview[0]+32+32*i,string(array[i]));
+for(var i = 0; i &lt; array_length_1d(arr); i++) {
+    draw_text(view_xview[0]+32,view_yview[0]+32+32*i,string(arr[i]));
 }
 
 

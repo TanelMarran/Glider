@@ -40,7 +40,7 @@ if hook_active = true {
             }
             hook_stretching_time++;
             movement_speed = movement_speed*0.9;
-                if movement_speed < 0.1*hook_stretching or (mouse_check_button_released(mb_left) && hook_stretching_time < hook_stretching_quickturn_frames) {
+                if movement_speed < 0.1*hook_stretching or (mouse_check_button_released(mb_left) && value_in_range(hook_stretching_time,hook_stretching_quickturn_frames)) {
                     hook_time = 0
                     hook_active = false
                     movement_speed = hook_stretching
@@ -48,6 +48,8 @@ if hook_active = true {
                     dir = point_direction(x,y,hook_x,hook_y)
                     dir_act = dir
                     hook_stretching_time = 0;
+                } else if mouse_check_button_released(mb_left) {
+                    //Set a variable that shows if the player failed the quickturn tech this time
                 }
         } else { //...otherwise start circling
             //This code could be imporved. It's a bit contrived and hard to understand in terms of balancing

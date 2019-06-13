@@ -3,7 +3,7 @@ var s = round((dir_act)/45);
 var which_directional_index = (s-floor(s/8)*8)*2;
 
 //Slingshot/Stretching technique
-if(hook_stretching_time == 21/*hook_stretching_time != 0*/) {
+if(hook_stretching_time == hook_stretching_quickturn_frames[0]/*hook_stretching_time != 0*/) {
     switch(which_directional_index) {
         case 0:
             break;
