@@ -51,9 +51,9 @@
   </fonts>
   <objects name="objects">
     <objects name="Game Control">
+      <object>objects\obj_global_variables</object>
       <object>objects\obj_controller</object>
       <object>objects\obj_camera</object>
-      <object>objects\obj_global_variables</object>
     </objects>
     <objects name="Player">
       <object>objects\obj_player</object>

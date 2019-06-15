@@ -25,7 +25,32 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>view_xview[0] = x-view_wview[0]/2
+            <string>///Freezeframe
+if (g.freeze != 0) {
+    exit;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Move view towards camera object
+view_xview[0] = x-view_wview[0]/2
 view_yview[0] = y-view_hview[0]/2
 </string>
           </argument>
@@ -49,7 +74,33 @@ view_yview[0] = y-view_hview[0]/2
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>x = round(obj_player.x+dcos(point_direction(x,y,mouse_x,mouse_y))*point_distance(x,y,mouse_x,mouse_y)*0.1)
+            <string>///Freezeframe
+if (g.freeze != 0) {
+    image_index = image_index-image_speed;
+    exit;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Move camera object towards player
+x = round(obj_player.x+dcos(point_direction(x,y,mouse_x,mouse_y))*point_distance(x,y,mouse_x,mouse_y)*0.1)
 y = round(obj_player.y-dsin(point_direction(x,y,mouse_x,mouse_y))*point_distance(x,y,mouse_x,mouse_y)*0.1)
 </string>
           </argument>

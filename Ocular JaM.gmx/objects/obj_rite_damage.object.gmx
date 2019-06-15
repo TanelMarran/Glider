@@ -25,7 +25,33 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>while(collision_circle(x,y,size,obj_enemy,false,true)) {
+            <string>///Freezeframe
+if (g.freeze != 0) {
+    image_index = image_index-image_speed;
+    exit;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Apply damage to monsters
+while(collision_circle(x,y,size,obj_enemy,false,true)) {
     with collision_circle(x,y,size,obj_enemy,false,true) {
         instance_destroy()
         with (obj_player) {

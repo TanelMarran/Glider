@@ -85,7 +85,34 @@ global.window_yoff=(global.window_h-view_hview[0]*global.window_scale)/2
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>gametime++
+            <string>///Freezeframe &amp; Freeze counter
+g.freeze = max(0,g.freeze-1);
+if (g.freeze != 0) {
+    image_index = image_index-image_speed;
+    exit;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Create monsters and end game
+gametime++;
 
 if irandom(60*3) = 1 {
     instance_create(irandom_range(64,room_width-64),irandom_range(64,room_height-64),obj_enemy)
@@ -158,7 +185,8 @@ texture_set_interpolation(false)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_text(view_xview[0]+160,view_yview[0]+16,string(points))
+            <string>///Draw points
+draw_text(view_xview[0]+160,view_yview[0]+16,string(points))
 </string>
           </argument>
         </arguments>

@@ -99,6 +99,31 @@ invincibility = 0 // if greater than 0, then the player is invincible.
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>///Freezeframe
+if (g.freeze != 0) {
+    image_index = image_index-image_speed;
+    exit;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>///Execute state
 script_execute(player_state)
 
