@@ -41,7 +41,7 @@ if hook_active = true {
             hook_stretching_time++;
             movement_speed = movement_speed*0.9;
                 if movement_speed < 0.1*hook_stretching or (mouse_check_button_released(mb_left) && value_in_range(hook_stretching_time,hook_stretching_quickturn_frames)) {
-                    g.freeze = 60;
+                    //g.freeze = 60;
                     hook_time = 0
                     hook_active = false
                     movement_speed = hook_stretching

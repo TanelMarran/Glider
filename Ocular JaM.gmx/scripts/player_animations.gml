@@ -24,7 +24,7 @@ if(hook_stretching_time == hook_stretching_quickturn_frames[0]/*hook_stretching_
     }
     image_speed = 0;
     image_index = movement_speed/(hook_stretching*0.1)
-    sprite_index = spr_mbunny_idle
+    //sprite_index = spr_mbunny_idle
 } else { //Gliding
     sprite_index = spr_pla;
     image_speed = 0.1;

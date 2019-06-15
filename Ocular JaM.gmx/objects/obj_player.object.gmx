@@ -235,7 +235,7 @@ player_animations()
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Draw Variables
+            <string>/*//Draw Variables
 
 var arr;
 

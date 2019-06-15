@@ -23,8 +23,11 @@
     </sprites>
     <sprite>sprites\spr_pla</sprite>
     <sprite>sprites\spr_player_turn_N_S</sprite>
+    <sprite>sprites\spr_grass</sprite>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\ts_grass</background>
+  </backgrounds>
   <paths name="paths">
     <path>paths\path0</path>
   </paths>
@@ -67,11 +70,11 @@
       </objects>
     </objects>
     <object>objects\test</object>
+    <object>objects\obj__temp</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\global_variable_init</room>
     <room>rooms\room0</room>
-    <room>rooms\room1</room>
   </rooms>
   <constants number="1">
     <constant name="g">global</constant>
