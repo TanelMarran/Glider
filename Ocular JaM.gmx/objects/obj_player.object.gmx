@@ -155,6 +155,40 @@ image_index = round(dir_act/45)
             <kind>1</kind>
             <string>///Define the depth of the player
 depth = -y
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Test
+
+if(mouse_check_button_pressed(mb_right)) {
+        with(instance_create(obj_player.x,obj_player.y,obj_player_projectile)) {
+            start_coord = array(other.x,other.y);
+            target_coord = array(mouse_x,mouse_y);
+            interm_coord = array(
+                                lerp(start_coord[0],target_coord[0],0.05),
+                                lerp(start_coord[1],target_coord[1],0.05)-path_height
+                                );
+        }
+}
 </string>
           </argument>
         </arguments>

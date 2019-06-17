@@ -168,7 +168,8 @@ if (g.freeze != 0) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>script_execute(state)
+            <string>///Execute state
+script_execute(state)
 </string>
           </argument>
         </arguments>
@@ -189,7 +190,8 @@ if (g.freeze != 0) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>depth = -y
+            <string>///Set depth
+depth = -y
 </string>
           </argument>
         </arguments>
