@@ -32,7 +32,7 @@ interm_coord = array(x,y);
 
 path_height = 250;
 path_percent = 0;
-path_percent_step = 0.05;
+path_percent_step = 0.01;
 </string>
           </argument>
         </arguments>
@@ -55,7 +55,7 @@ path_percent_step = 0.05;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var new_coord = bezier_point(start_coord,interm_coord,target_coord,path_percent);
+            <string>var new_coord = bezier_point(start_coord,interm_coord,target_coord,curvestep(path_percent));
 
 target_coord = array(target_id.x,target_id.y);
 
@@ -96,6 +96,7 @@ if(path_percent &gt; 1) {
     var l = bezier_point(start_coord,interm_coord,target_coord,max(0,i-0.05));
     draw_line(c[0],c[1],l[0],l[1]);
 }*/
+draw_text(obj_player.x,obj_player.y,string(curvestep(path_percent)));
 draw_self();
 </string>
           </argument>
