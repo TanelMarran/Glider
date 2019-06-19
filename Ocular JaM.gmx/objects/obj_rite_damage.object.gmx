@@ -54,6 +54,7 @@ if (g.freeze != 0) {
 var deact;
 deact[0] = noone;
 var i = 0;
+var add_speed = 0;
 
 while(collision_circle(x,y,size,obj_enemy,false,true)) {
     with collision_circle(x,y,size,obj_enemy,false,true) {
@@ -70,9 +71,7 @@ while(collision_circle(x,y,size,obj_enemy,false,true)) {
             }
         }
         //Increase player speed
-        with (obj_player) {
-            movement_speed += 1
-        }
+        add_speed += obj_player.purify_speed_gain;
         
         //Add id to array for later reactivation
         deact[i] = id;
@@ -85,6 +84,9 @@ while(collision_circle(x,y,size,obj_enemy,false,true)) {
 for(i = 0; i &lt; array_length_1d(deact); i++) {
     instance_activate_object(deact[i]);
 }
+
+//Increase player speed
+obj_player.movement_speed += add_speed/max(1,(i-1));
 
 instance_destroy()
 </string>

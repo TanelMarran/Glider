@@ -46,7 +46,8 @@ movement_speed = 2; //The player actual current speed
 
 stat_acc_amount = min_movement_speed; //Acceleration
 acc_amount = 5; //How fast the player can accelerate and deaccelerate
-speed_loss = 0.01 //How fast the player loses speed
+speed_loss = 0.001 //How fast the player loses speed
+purify_speed_gain = 0.5 //How much speed the player gains when purifying something
 
 player_state = state_player_move; //Defines the player's current behaviour (what actions they can perform etc)
 

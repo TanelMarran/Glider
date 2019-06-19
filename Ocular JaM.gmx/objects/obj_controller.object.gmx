@@ -186,7 +186,7 @@ texture_set_interpolation(false)
           <argument>
             <kind>1</kind>
             <string>///Draw points
-draw_text(view_xview[0]+160,view_yview[0]+16,string(points))
+draw_text(view_xview[0]+160,view_yview[0]+16,string(obj_player.movement_speed))
 </string>
           </argument>
         </arguments>
