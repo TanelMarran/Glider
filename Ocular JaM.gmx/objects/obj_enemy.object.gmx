@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_speed = 10/60
+            <string>///Variables
+image_speed = 10/60
 
 dir = 90
 dir_act = 90
@@ -44,6 +45,7 @@ pyth_movement = 0
 acc_amount = 6 //Acceleration
 
 state = state_mbunny_hop
+targeted_by = noone;
 
 image_tween = 0
 image_index_last = 0
@@ -67,7 +69,8 @@ image_index_last = 0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>depth = -y
+            <string>///Depth
+depth = -y
 </string>
           </argument>
         </arguments>

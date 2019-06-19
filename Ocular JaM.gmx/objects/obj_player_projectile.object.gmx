@@ -57,12 +57,15 @@ path_percent_step = 0.01;
             <kind>1</kind>
             <string>var new_coord = bezier_point(start_coord,interm_coord,target_coord,curvestep(path_percent));
 
-target_coord = array(target_id.x,target_id.y);
+if(target_id != id) { 
+    target_coord = array(target_id.x,target_id.y);
+}
 
 x = new_coord[0];
 y = new_coord[1];
 
 path_percent += path_percent_step;
+path_percent_step += 0.0005;
 
 if(path_percent &gt; 1) {
     instance_destroy();

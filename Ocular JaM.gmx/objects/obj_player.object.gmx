@@ -46,6 +46,7 @@ movement_speed = 2; //The player actual current speed
 
 stat_acc_amount = min_movement_speed; //Acceleration
 acc_amount = 5; //How fast the player can accelerate and deaccelerate
+speed_loss = 0.01 //How fast the player loses speed
 
 player_state = state_player_move; //Defines the player's current behaviour (what actions they can perform etc)
 
@@ -127,8 +128,13 @@ if (g.freeze != 0) {
             <string>///Execute state
 script_execute(player_state)
 
-if keyboard_check_pressed(ord("R")) or place_meeting(x,y,obj_enemy) {
+if keyboard_check_pressed(ord("R")) {
     game_restart()
+}
+with(instance_place(x,y,obj_enemy)) {
+    if(targeted_by == noone) {
+        game_restart();
+    }
 }
 
 image_speed = 0

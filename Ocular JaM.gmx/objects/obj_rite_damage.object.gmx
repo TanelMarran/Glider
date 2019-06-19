@@ -59,12 +59,15 @@ while(collision_circle(x,y,size,obj_enemy,false,true)) {
     with collision_circle(x,y,size,obj_enemy,false,true) {
         //Create projectile
         with(instance_create(obj_player.x,obj_player.y,obj_player_projectile)) {
-            target_id = other;
-            target_coord = array(other.x,other.y);
-            interm_coord = array(
-                                lerp(start_coord[0],target_coord[0],0.05),
-                                lerp(start_coord[1],target_coord[1],0.05)-path_height
-                                );
+            if(other.targeted_by == noone) {
+                other.targeted_by = id;
+                target_id = other;
+                target_coord = array(other.x,other.y);
+                interm_coord = array(
+                                    lerp(start_coord[0],target_coord[0],-1.5+random_range(-0.2,0.2)),
+                                    lerp(start_coord[1],target_coord[1],-1.5+random_range(-0.2,0.2))-path_height+random_range(-30,10)
+                                    );
+            }
         }
         //Increase player speed
         with (obj_player) {
@@ -73,6 +76,7 @@ while(collision_circle(x,y,size,obj_enemy,false,true)) {
         
         //Add id to array for later reactivation
         deact[i] = id;
+        i++;
         instance_deactivate_object(id);
     }
 }
