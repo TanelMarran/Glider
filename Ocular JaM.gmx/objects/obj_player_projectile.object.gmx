@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>start_coord = array(x,y);
+            <string>///Variables
+start_coord = array(x,y);
 target_id = self;
 target_coord = array(x,y);
 interm_coord = array(x,y); 
@@ -33,6 +34,10 @@ interm_coord = array(x,y);
 path_height = 250;
 path_percent = 0;
 path_percent_step = 0.01;
+
+trail_length = 10;
+trail_coords = ds_list_create();
+trail_surface = surface_create(view_wview[0],view_hview[0]);
 </string>
           </argument>
         </arguments>
@@ -55,7 +60,8 @@ path_percent_step = 0.01;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var new_coord = bezier_point(start_coord,interm_coord,target_coord,curvestep(path_percent));
+            <string>///Move along curve
+var new_coord = bezier_point(start_coord,interm_coord,target_coord,curvestep(path_percent));
 
 if(target_id != id) { 
     target_coord = array(target_id.x,target_id.y);
@@ -75,8 +81,68 @@ if(path_percent &gt; 1) {
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Save last coords
+if (ds_list_size(trail_coords) &gt; trail_length) {
+    ds_list_delete(trail_coords,0);
+}
+
+ds_list_add(trail_coords,array(x,y));
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Draw trail
+//surface_set_target(trail_surface);
+    //draw_clear_alpha(c_white,0);
+    draw_set_color(c_yellow);
+    for(i = 1; i &lt; ds_list_size(trail_coords); i++) {
+        var coords = ds_list_find_value(trail_coords,i);
+        var coords_last = ds_list_find_value(trail_coords,i-1);
+        draw_line(coords[0],coords[1],coords_last[0],coords_last[1]);
+    }
+//surface_reset_target();
+
+//draw_surface(trail_surface)
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
       <action>
         <libid>1</libid>
         <id>603</id>

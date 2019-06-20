@@ -71,7 +71,7 @@ y = y+axis_y
 
 if hook_active = true {
     hook_time++
-    movement_speed += max(0,15-hook_time)*power(0.15,15-hook_time)
+    movement_speed += max(0,15-hook_time)*power(0.15,max(1,15-hook_time))
     if hook_rite = noone && hook_stretching = 0 && hook_radius_act >= hook_radius {
         with(instance_create(hook_x,hook_y,obj_rite_completion)) {
             hook_radius = other.hook_radius
