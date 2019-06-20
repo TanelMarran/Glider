@@ -1,6 +1,6 @@
 ///Player Move State
 
-movement_speed = movement_speed+sign(min_movement_speed-movement_speed)*min(abs(min_movement_speed-movement_speed),speed_loss)
+movement_speed = movement_speed+sign(min_movement_speed-movement_speed)*min(abs(min_movement_speed-movement_speed),speed_loss+(movement_speed-2)*speed_loss_percent);
 
 //Apply the grapple point
 if mouse_check_button_pressed(mb_left) && hook_active = false {
