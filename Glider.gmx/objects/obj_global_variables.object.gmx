@@ -29,6 +29,8 @@
 g.freeze = 0;
 
 room_goto_next();
+
+window_set_fullscreen(!debug_mode);
 </string>
           </argument>
         </arguments>

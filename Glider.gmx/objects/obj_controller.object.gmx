@@ -27,9 +27,11 @@
             <kind>1</kind>
             <string>///Variables
 
-gametime = 0
+gametime = 0;
 
-points = 0
+points = 0;
+
+show_variables = debug_mode;
 </string>
           </argument>
         </arguments>
@@ -69,6 +71,32 @@ global.window_yoff=(global.window_h-view_hview[0]*global.window_scale)/2
       </action>
     </event>
     <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Toggle fullscreen &amp; Variables
+if(keyboard_check_pressed(vk_f4)) {
+    window_set_fullscreen(!window_get_fullscreen());
+}
+
+show_variables = abs(show_variables-keyboard_check_pressed(ord("Q")));
+</string>
+          </argument>
+        </arguments>
+      </action>
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -186,16 +214,24 @@ texture_set_interpolation(false)
           <argument>
             <kind>1</kind>
             <string>///Draw variables
-variables = array(
-                obj_player.movement_speed,
-                obj_player.hook_time,
-                mouse_check_button_pressed(mb_left),
-                mouse_check_button(mb_left),
-                noone
-                );
-
-for(i = 0; i &lt; array_length_1d(variables); i++) {
-    draw_text(view_xview[0]+20,view_yview[0]+16*i,string(variables[i]));
+if(debug_mode == true or show_variables) {
+    draw_set_color(c_black);
+    variables = array(
+                    "movement_speed: " + string(obj_player.movement_speed),
+                    "hook_time: " + string(obj_player.hook_time),
+                    "speed_loss_pause: " + string(obj_player.speed_loss_pause)
+                    );
+    
+    for(i = 0; i &lt; array_length_1d(variables); i++) {
+        draw_text(view_xview[0],view_yview[0]+16*i,variables[i]);
+    }
+    
+    var p = obj_player;
+    var length = 30;
+    draw_set_color(c_teal);
+    draw_arrow(p.x,p.y,p.x+dcos(p.dir)*length,p.y-dsin(p.dir)*length,4);
+    draw_set_color(c_aqua)
+     draw_arrow(p.x,p.y,p.x+dcos(p.dir_act)*length,p.y-dsin(p.dir_act)*length,4);
 }
 </string>
           </argument>
