@@ -72,6 +72,8 @@ while(collision_circle(x,y,size,obj_enemy,false,true)) {
         }
         //Increase player speed
         add_speed += obj_player.purify_speed_gain;
+        //Pause player deaceleration
+        obj_player.speed_loss_pause = obj_player.purify_speed_loss_pause;
         
         //Add id to array for later reactivation
         deact[i] = id;

@@ -1,6 +1,13 @@
 ///Player Move State
 
-movement_speed = movement_speed+sign(min_movement_speed-movement_speed)*min(abs(min_movement_speed-movement_speed),speed_loss+(movement_speed-2)*speed_loss_percent);
+//Count down purify_speed_loss_pause
+speed_loss_pause = max(0,speed_loss_pause-1);
+
+movement_speed = 
+                movement_speed+
+                sign(min_movement_speed-movement_speed)*
+                min(abs(min_movement_speed-movement_speed),
+                (speed_loss_pause==0)*(speed_loss+(movement_speed-min_movement_speed)*speed_loss_percent));
 
 //Apply the grapple point
 if mouse_check_button_pressed(mb_left) && hook_active = false {
@@ -71,7 +78,8 @@ y = y+axis_y
 
 if hook_active = true {
     hook_time++
-    movement_speed += max(0,15-hook_time)*power(0.15,max(1,15-hook_time))
+    speed_loss_pause = max(speed_loss_pause,circling_speed_loss_pause*(hook_time==1));
+    movement_speed += max(0,circling_start_boost_time-hook_time)*power(0.15,max(1,circling_start_boost_time-hook_time)) //Add speedboost at the start of circling
     if hook_rite = noone && hook_stretching = 0 && hook_radius_act >= hook_radius {
         with(instance_create(hook_x,hook_y,obj_rite_completion)) {
             hook_radius = other.hook_radius

@@ -50,6 +50,11 @@ speed_loss = 0.001; //How fast the player loses speed (flat)
 speed_loss_percent = 0.002; //How fast the player loses speed (percent of movement speed)
 purify_speed_gain = 0.5; //How much speed the player gains when purifying something
 
+speed_loss_pause = 0 //How many frames til speed starts decreasing again
+purify_speed_loss_pause = 30; //How long to pause speed loss when the player has purified somebody
+circling_speed_loss_pause = 5; //How long to pause speed loss when the player starts circling
+circling_start_boost_time = 15 //How many frames the circling boost continues for
+
 player_state = state_player_move; //Defines the player's current behaviour (what actions they can perform etc)
 
 ///Hook variables
@@ -127,40 +132,6 @@ if (g.freeze != 0) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Execute state
-script_execute(player_state)
-
-if keyboard_check_pressed(ord("R")) {
-    game_restart()
-}
-with(instance_place(x,y,obj_enemy)) {
-    if(targeted_by == noone) {
-        game_restart();
-    }
-}
-
-image_speed = 0
-image_index = round(dir_act/45)
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
             <string>///Define the depth of the player
 depth = -y
 
@@ -197,6 +168,40 @@ if(mouse_check_button_pressed(mb_right)) {
                                 );
         }
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Execute state
+script_execute(player_state)
+
+if keyboard_check_pressed(ord("R")) {
+    game_restart()
+}
+with(instance_place(x,y,obj_enemy)) {
+    if(targeted_by == noone) {
+        game_restart();
+    }
+}
+
+image_speed = 0
+image_index = round(dir_act/45)
 </string>
           </argument>
         </arguments>
