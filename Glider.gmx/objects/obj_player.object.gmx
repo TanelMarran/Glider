@@ -52,7 +52,6 @@ purify_speed_gain = 0.5; //How much speed the player gains when purifying someth
 
 speed_loss_pause = 0 //How many frames til speed starts decreasing again
 purify_speed_loss_pause = 30; //How long to pause speed loss when the player has purified somebody
-circling_speed_loss_pause = 5; //How long to pause speed loss when the player starts circling
 circling_start_boost_time = 15 //How many frames the circling boost continues for
 
 player_state = state_player_move; //Defines the player's current behaviour (what actions they can perform etc)

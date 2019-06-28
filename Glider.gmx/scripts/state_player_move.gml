@@ -67,6 +67,8 @@ if hook_active = true {
             dir = point_direction(x,y,an_x,an_y)
         }
     }
+} else {
+    dir = dir_act;
 }
 
 //Apply movement
@@ -78,7 +80,6 @@ y = y+axis_y
 
 if hook_active = true {
     hook_time++
-    speed_loss_pause = max(speed_loss_pause,circling_speed_loss_pause*(hook_time==1));
     movement_speed += max(0,circling_start_boost_time-hook_time)*power(0.15,max(1,circling_start_boost_time-hook_time)) //Add speedboost at the start of circling
     if hook_rite = noone && hook_stretching = 0 && hook_radius_act >= hook_radius {
         with(instance_create(hook_x,hook_y,obj_rite_completion)) {
