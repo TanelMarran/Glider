@@ -73,6 +73,8 @@ if hook_active = true {
 
 //Apply movement
 
+dir_act = dir_act+min(dir_change,abs(angle_difference(dir_act,dir)))*-sign(angle_difference(dir_act,dir));
+
 movement_logic();
 
 x = x+axis_x

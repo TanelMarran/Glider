@@ -25,6 +25,7 @@
     <sprite>sprites\spr_player_turn_N_S</sprite>
     <sprite>sprites\spr_grass</sprite>
     <sprite>sprites\spr_player_projectile</sprite>
+    <sprite>sprites\spr_dust</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\ts_grass</background>
@@ -47,6 +48,8 @@
     <script>scripts\value_in_range.gml</script>
     <script>scripts\bezier_point.gml</script>
     <script>scripts\curvestep.gml</script>
+    <script>scripts\init_movement.gml</script>
+    <script>scripts\create_particle_dust.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shd_RemoveWhite.shader</shader>
@@ -69,6 +72,7 @@
       </objects>
       <objects name="Enemies">
         <object>objects\obj_enemy</object>
+        <object>objects\obj_dust</object>
       </objects>
     </objects>
     <object>objects\test</object>

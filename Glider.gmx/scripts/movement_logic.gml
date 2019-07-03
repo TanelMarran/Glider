@@ -1,7 +1,5 @@
 //Apply movement
 
-dir_act = dir_act+min(dir_change,abs(angle_difference(dir_act,dir)))*-sign(angle_difference(dir_act,dir))
-
 t_axis_x = dcos(dir_act)*movement_speed
 t_axis_y = -dsin(dir_act)*movement_speed
 
