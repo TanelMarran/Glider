@@ -79,7 +79,8 @@
     <room>rooms\global_variable_init</room>
     <room>rooms\room0</room>
   </rooms>
-  <constants number="1">
+  <constants number="2">
+    <constant name="gamesteps">obj_controller.gametime</constant>
     <constant name="g">global</constant>
   </constants>
   <help>

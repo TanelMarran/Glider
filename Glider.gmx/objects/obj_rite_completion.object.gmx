@@ -193,7 +193,7 @@ hook_rite_last = point_direction(x,y,obj_player.x,obj_player.y)
 depth = obj_player+10000
 draw_set_alpha(0.5*death_time/death_max)
 
-draw_set_color(make_color_rgb(196, 15, 96))
+draw_set_color(make_color_rgb(77, 66, 51))
 
 for(var i = 0; i &lt; ceil(hook_rite); i++) {
     var s = -sign(angle_difference(point_direction(0,0,obj_player.axis_x,obj_player.axis_y),point_direction(obj_player.x,obj_player.y,x,y)))
