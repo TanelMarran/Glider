@@ -1,13 +1,15 @@
 ///Player Move State
+if !mouse_check_button(mb_left) {
+    hook_circling = false;
+}
 
 //Count down purify_speed_loss_pause
 speed_loss_pause = max(0,speed_loss_pause-1);
 
-movement_speed = 
-                movement_speed+
-                sign(min_movement_speed-movement_speed)*
-                min(abs(min_movement_speed-movement_speed),
-                (speed_loss_pause==0)*(speed_loss+(movement_speed-min_movement_speed)*speed_loss_percent));
+movement_speed = movement_speed+
+                 sign(min_movement_speed-movement_speed)*
+                 min(abs(min_movement_speed-movement_speed),
+                 (speed_loss_pause==0)*(speed_loss+(movement_speed-min_movement_speed)*speed_loss_percent));
 
 //Apply the grapple point
 if mouse_check_button_pressed(mb_left) && hook_active = false {
@@ -34,14 +36,15 @@ if mouse_check_button_released(mb_left) && hook_stretching = 0 {
 
 if hook_active = true {
     hook_radius_act = point_distance(x,y,hook_x,hook_y)
-     
-    var a = point_direction(x,y,hook_x,hook_y)+sign(angle_difference(point_direction(0,0,axis_x,axis_y),point_direction(x,y,hook_x,hook_y)))*darccos((pyth_movement)/(2*hook_radius))
+    
+    var angle_to_center = point_direction(x,y,hook_x,hook_y);
+    var a = angle_to_center+sign(angle_difference(point_direction(0,0,axis_x,axis_y),angle_to_center))*darccos((pyth_movement)/(2*hook_radius))
     var an_x = hook_x+dcos(point_direction(hook_x,hook_y,x,y))*hook_radius+dcos(a)*(movement_speed+hook_radius*2.5*max(0,hook_radius_act-hook_radius)/hook_radius)
     var an_y = hook_y-dsin(point_direction(hook_x,hook_y,x,y))*hook_radius-dsin(a)*(movement_speed+hook_radius*2.5*max(0,hook_radius_act-hook_radius)/hook_radius)
     
     if hook_radius_act > hook_radius {
         //If the player meets the required conditions, start using the slingshot/stretching technique
-        if abs(angle_difference(point_direction(0,0,axis_x,axis_y),point_direction(x,y,hook_x,hook_y))) > 160 && hook_rite = noone {
+        if abs(angle_difference(point_direction(0,0,axis_x,axis_y),angle_to_center)) > 160 && hook_rite = noone {
             if hook_stretching == 0 {
                 hook_stretching = movement_speed
             }
@@ -53,18 +56,17 @@ if hook_active = true {
                     hook_active = false
                     movement_speed = hook_stretching
                     hook_stretching = 0
-                    dir = point_direction(x,y,hook_x,hook_y)
+                    dir = angle_to_center
                     dir_act = dir
                     hook_stretching_time = 0;
                 } else if mouse_check_button_released(mb_left) {
                     //Set a variable that shows if the player failed the quickturn tech this time
                 }
         } else { //...otherwise start circling
-            //This code could be imporved. It's a bit contrived and hard to understand in terms of balancing
-            // '!' is code that will probably get removed
-            /*var dir_change_first = min(hook_time*0.1,10)!*/
             dir_change = min(180,dir_change+(power(movement_speed,1.2)/power(hook_radius,0.5))/*(power(1.1,dir_change_first))!*/)
-            dir = point_direction(x,y,an_x,an_y)
+            dir = point_direction(x,y,an_x,an_y);
+            hook_circling = true;
+            hook_circling_dir = -sign(angle_difference(dir,angle_to_center)); //Set which way were circling
         }
     }
 } else {

@@ -6,23 +6,11 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprite>sprites\spr_player</sprite>
     <sprite>sprites\spr_mbunny_idle</sprite>
     <sprite>sprites\spr_mbunny_hop</sprite>
-    <sprite>sprites\spr_player2</sprite>
-    <sprite>sprites\spr_player_head</sprite>
     <sprite>sprites\spr_shadow</sprite>
-    <sprites name="Effects">
-      <sprite>sprites\spr_effect_cape1</sprite>
-      <sprite>sprites\spr_effect_cape2</sprite>
-      <sprite>sprites\spr_effect_cape3</sprite>
-      <sprite>sprites\spr_effect_cape4</sprite>
-      <sprite>sprites\spr_effect_anti1</sprite>
-      <sprite>sprites\spr_effect_anti2</sprite>
-      <sprite>sprites\spr_effect_anti3</sprite>
-    </sprites>
-    <sprite>sprites\spr_pla</sprite>
-    <sprite>sprites\spr_player_turn_N_S</sprite>
+    <sprite>sprites\spr_player</sprite>
+    <sprite>sprites\spr_player_turning</sprite>
     <sprite>sprites\spr_grass</sprite>
     <sprite>sprites\spr_player_projectile</sprite>
     <sprite>sprites\spr_dust</sprite>

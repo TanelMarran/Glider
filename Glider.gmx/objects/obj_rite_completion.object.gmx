@@ -191,7 +191,7 @@ hook_rite_last = point_direction(x,y,obj_player.x,obj_player.y)
             <kind>1</kind>
             <string>///Draw the circle
 depth = obj_player+10000
-draw_set_alpha(0.5*death_time/death_max)
+draw_set_alpha(death_time/death_max)
 
 draw_set_color(make_color_rgb(77, 66, 51))
 
