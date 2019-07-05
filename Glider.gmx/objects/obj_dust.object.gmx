@@ -31,6 +31,7 @@ init_movement();
 lifetime = 30;
 image_speed = 0;
 image_index = irandom_range(0,image_number);
+acc_deacc = 0;
 </string>
           </argument>
         </arguments>
@@ -53,11 +54,37 @@ image_index = irandom_range(0,image_number);
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>///Freezeframe
+if (g.freeze != 0) {
+    image_index = image_index-image_speed;
+    exit;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>///Movement &amp; life
 depth = -y;
 
 movement_logic();
 
+acc_amount = max(0,acc_amount-acc_deacc);
 x += axis_x;
 y += axis_y;
 

@@ -71,7 +71,7 @@ hook_circling = false; //Wheter or not were circling
 hook_circling_dir = 0; //What was the last direction of circling - 1 means clockwize and -1 counter cw
 
 var qts = 10;
-var qtl = 5
+var qtl = 6;
 hook_stretching_quickturn_frames = array(qts,qts+qtl); //How many n first frames can be used to activate the quickturn tech.
 
 hook_rite = noone //The ID of the current instance of obj_rite_completion - defines what circle the player is creating
@@ -225,7 +225,8 @@ image_index = round(dir_act/45)
             <kind>1</kind>
             <string>///Draw smoke on quickturn
 if(value_in_range(hook_stretching_time,array(1,15))) {
-    create_particle_dust(1/movement_speed*2.5);
+    var s = 1/movement_speed*movement_speed*2
+    dust = create_particle_dust(x+lengthdir_x(s,dir_act),y+lengthdir_y(s,dir_act),dir,s,15,0.05,0.5,15*movement_speed);
 }
 </string>
           </argument>

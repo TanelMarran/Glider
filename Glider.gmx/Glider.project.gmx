@@ -14,6 +14,7 @@
     <sprite>sprites\spr_grass</sprite>
     <sprite>sprites\spr_player_projectile</sprite>
     <sprite>sprites\spr_dust</sprite>
+    <sprite>sprites\spr_glare</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\ts_grass</background>
@@ -41,6 +42,7 @@
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shd_RemoveWhite.shader</shader>
+    <shader type="GLSLES">shaders\shd_pureWhite.shader</shader>
   </shaders>
   <fonts name="fonts">
     <font>fonts\ft_default</font>
@@ -52,6 +54,7 @@
       <object>objects\obj_camera</object>
     </objects>
     <objects name="Player">
+      <object>objects\obj_dust</object>
       <object>objects\obj_player</object>
       <objects name="Circle Rite">
         <object>objects\obj_rite_completion</object>
@@ -60,7 +63,6 @@
       </objects>
       <objects name="Enemies">
         <object>objects\obj_enemy</object>
-        <object>objects\obj_dust</object>
       </objects>
     </objects>
     <object>objects\test</object>

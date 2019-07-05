@@ -1,4 +1,6 @@
 ///Player Move State
+var quickturn_check = (mouse_check_button_released(mb_left) && value_in_range(hook_stretching_time,hook_stretching_quickturn_frames));
+
 if !mouse_check_button(mb_left) {
     hook_circling = false;
 }
@@ -50,18 +52,20 @@ if hook_active = true {
             }
             hook_stretching_time++;
             movement_speed = movement_speed*0.9;
-                if movement_speed < 0.1*hook_stretching or (mouse_check_button_released(mb_left) && value_in_range(hook_stretching_time,hook_stretching_quickturn_frames)) {
-                    //g.freeze = 60;
-                    hook_time = 0
-                    hook_active = false
-                    movement_speed = hook_stretching
-                    hook_stretching = 0
-                    dir = angle_to_center
-                    dir_act = dir
-                    hook_stretching_time = 0;
-                } else if mouse_check_button_released(mb_left) {
-                    //Set a variable that shows if the player failed the quickturn tech this time
+            if (movement_speed < 0.1*hook_stretching or quickturn_check) {
+                if(quickturn_check) {
+                    g.freeze = 5;
                 }
+                hook_time = 0
+                hook_active = false
+                movement_speed = hook_stretching
+                hook_stretching = 0
+                dir = angle_to_center
+                dir_act = dir
+                hook_stretching_time = 0;
+            } else if mouse_check_button_released(mb_left) {
+                //Set a variable that shows if the player failed the quickturn tech this time
+            }
         } else { //...otherwise start circling
             dir_change = min(180,dir_change+(power(movement_speed,1.2)/power(hook_radius,0.5))/*(power(1.1,dir_change_first))!*/)
             dir = point_direction(x,y,an_x,an_y);
