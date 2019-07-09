@@ -32,6 +32,6 @@ void main()
     Alpha = texture2D( gm_BaseTexture, v_vTexcoord ).a;
     White = vec4(2.0*ColorFactor,1.9*ColorFactor,1.5*ColorFactor,Alpha);
     
-    gl_FragColor = White * texture2D( gm_BaseTexture, v_vTexcoord );
+    gl_FragColor = v_vColour * White * texture2D( gm_BaseTexture, v_vTexcoord );
 }
 

@@ -53,9 +53,6 @@ if hook_active = true {
             hook_stretching_time++;
             movement_speed = movement_speed*0.9;
             if (movement_speed < 0.1*hook_stretching or quickturn_check) {
-                if(quickturn_check) {
-                    g.freeze = 5;
-                }
                 hook_time = 0
                 hook_active = false
                 movement_speed = hook_stretching
@@ -63,6 +60,13 @@ if hook_active = true {
                 dir = angle_to_center
                 dir_act = dir
                 hook_stretching_time = 0;
+                if(quickturn_check) {
+                    g.freeze = 5;
+                    with(instance_create(x+lengthdir_x(movement_speed,dir),y+lengthdir_y(movement_speed,dir),obj_quickturn_image)) {
+                        target_x = other.x+lengthdir_x(other.movement_speed*10,other.dir);
+                        target_y = other.y+lengthdir_y(other.movement_speed*10,other.dir);
+                    }
+                }
             } else if mouse_check_button_released(mb_left) {
                 //Set a variable that shows if the player failed the quickturn tech this time
             }

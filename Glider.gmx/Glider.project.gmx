@@ -56,6 +56,7 @@
     <objects name="Player">
       <object>objects\obj_dust</object>
       <object>objects\obj_player</object>
+      <object>objects\obj_quickturn_image</object>
       <objects name="Circle Rite">
         <object>objects\obj_rite_completion</object>
         <object>objects\obj_rite_damage</object>
