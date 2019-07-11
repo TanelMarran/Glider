@@ -32,6 +32,8 @@ gametime = 0;
 points = 0;
 
 show_variables = debug_mode;
+
+instance_create(x,y,obj_score_keeper);
 </string>
           </argument>
         </arguments>
@@ -219,9 +221,10 @@ if(debug_mode == true or show_variables) {
     variables = array(
                     "movement_speed: " + string(obj_player.movement_speed),
                     "hook_time: " + string(obj_player.hook_time),
-                    "speed_loss_pause: " + string(obj_player.speed_loss_pause),
+                    "hook_radius: " + string(obj_player.hook_radius),
                     "hook_circling: " + string(obj_player.hook_circling),
                     "hook_circling_dir: " + string(obj_player.hook_circling_dir)
+                    
                     );
     
     for(i = 0; i &lt; array_length_1d(variables); i++) {

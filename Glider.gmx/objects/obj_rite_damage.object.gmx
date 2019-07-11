@@ -8,6 +8,52 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>targets = ds_list_create();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>ds_list_destroy(targets);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -72,6 +118,7 @@ while(collision_circle(x,y,size,obj_enemy,false,true)) {
         }
         //Increase player speed
         add_speed += obj_player.purify_speed_gain;
+        
         //Pause player deaceleration
         obj_player.speed_loss_pause = obj_player.purify_speed_loss_pause;
         
@@ -87,8 +134,16 @@ for(i = 0; i &lt; array_length_1d(deact); i++) {
     instance_activate_object(deact[i]);
 }
 
+
 //Increase player speed
-obj_player.movement_speed += add_speed/max(1,(i-1));
+if add_speed != 0 {
+    obj_player.movement_speed += add_speed/max(1,(i-1));
+               
+    //Start a combo
+    obj_score_keeper.player_multiplier_duration = obj_score_keeper.player_multiplier_max_duration
+    
+    add_score(size,deact);
+}
 
 instance_destroy()
 </string>
