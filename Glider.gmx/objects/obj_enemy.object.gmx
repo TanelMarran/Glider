@@ -38,11 +38,13 @@ t_axis_y = 0
 axis_x = 0 //What the velocity actually is
 axis_y = 0
 
-min_movement_speed = 2 //How fast we can skate
+min_movement_speed = 1.5 //How fast we can skate
 movement_speed = 0
 pyth_movement = 0
 
 acc_amount = 6 //Acceleration
+
+points_granted = 10; //How many points this enemy grants on purification
 
 state = state_mbunny_hop
 targeted_by = noone;

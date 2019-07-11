@@ -25,10 +25,35 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>player_score = 0;
-player_multiplier = 0;
+            <string>///Variables
+player_score = 0;
+
+player_multiplier_threshold[0] = 700; //4x
+player_multiplier_threshold[1] = 300; //3x
+player_multiplier_threshold[2] = 100; //2x
+
+
+player_combo = 0;
+player_multiplier = 1;
 player_multiplier_duration = 0;
 player_multiplier_max_duration = 60*10;
+
+//The different circle size ranges and their respective score multiplier
+circle_size_range[0] = 30; //Tiny
+circle_size_multiplier[0] = 2.0;
+
+circle_size_range[1] = 50; //Small
+circle_size_multiplier[1] = 1.5;
+
+circle_size_range[2] = 100; 
+circle_size_multiplier[2] = 1.0; //Medium
+
+circle_size_range[3] = 200;
+circle_size_multiplier[3] = 0.5; //Big
+
+circle_size_multiplier[4] = 0.25; //Huge
+
+
 </string>
           </argument>
         </arguments>
@@ -51,7 +76,26 @@ player_multiplier_max_duration = 60*10;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>player_multiplier_duration = max(0,player_multiplier_duration-1);
+            <string>///Manage the player multiplier
+
+//Decrease the multiplier continuation timer
+player_multiplier_duration = max(0,player_multiplier_duration-1);
+
+
+//Stop counting points if combo is broken
+if (player_multiplier_duration == 0) {
+    player_combo = 0;
+}
+
+//Adjust the multiplier
+
+player_multiplier = 1.0;
+for(var i = 0; i &lt; array_length_1d(player_multiplier_threshold); i++) {
+    if (player_combo &gt;= player_multiplier_threshold[i]) {
+        player_multiplier = 4-i;
+        break;
+    }
+}
 </string>
           </argument>
         </arguments>
@@ -78,15 +122,18 @@ player_multiplier_max_duration = 60*10;
 var multiplier_duration_percent = (player_multiplier_duration/player_multiplier_max_duration);
 
 //Draw score
-draw_text(0,0,"Score: " + string(player_score));
+draw_text(0,0,string(player_score) + "p");
+
+//Draw combo multiplier
+draw_text(0,16,string(player_combo) + "p  " + string(player_multiplier) + "x");
 
 //Draw combo bar
 draw_set_color(c_black);
-draw_line_width(0,16,line_length,16,3);
+draw_line_width(0,32,line_length,32,3);
 
 //Draw combobar fill amount
 draw_set_color(merge_color(c_blue,c_red,multiplier_duration_percent));
-draw_line_width(0,16,multiplier_duration_percent*line_length,16,3);
+draw_line_width(0,32,multiplier_duration_percent*line_length,32,3);
 </string>
           </argument>
         </arguments>
