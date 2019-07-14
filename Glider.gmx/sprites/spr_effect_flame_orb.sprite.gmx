@@ -20,6 +20,8 @@
   <width>7</width>
   <height>7</height>
   <frames>
-    <frame index="0">images\spr_player_projectile_0.png</frame>
+    <frame index="0">images\spr_effect_flame_orb_0.png</frame>
+    <frame index="1">images\spr_effect_flame_orb_1.png</frame>
+    <frame index="2">images\spr_effect_flame_orb_2.png</frame>
   </frames>
 </sprite>

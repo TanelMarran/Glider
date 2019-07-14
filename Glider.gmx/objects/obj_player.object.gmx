@@ -247,9 +247,7 @@ image_index = round(dir_act/45)
             <string>///Draw smoke on quickturn
 if(value_in_range(hook_stretching_time,array(1,15))) {
     var s = 1/movement_speed*movement_speed*2
-    dust = create_particle_dust(x+lengthdir_x(s,dir_act),y+lengthdir_y(s,dir),dir,s,15,0.05,0.5,15*movement_speed);
-} else if (gamesteps % round((1/movement_speed)*30) = 0) {
-    create_particle_dust(x+lengthdir_x(4,dir_act+180),y+lengthdir_y(4,dir_act+180),dir_act,0,15,0.05,0.5,2);
+    dust = create_particle_dust(x+lengthdir_x(s,dir_act),y+lengthdir_y(s,dir_act),dir_act,s,15,0.05,0.5,15*movement_speed);
 }
 </string>
           </argument>

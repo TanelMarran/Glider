@@ -62,7 +62,7 @@ if hook_active = true {
                 dir_act = dir
                 hook_stretching_time = 0;
                 if(quickturn_check) {
-                    g.freeze = 5;
+                    g.freeze = 8;
                     instance_create(x,y,obj_quickturn_image)
                 }
             } else if mouse_check_button_released(mb_left) {

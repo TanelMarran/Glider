@@ -6,15 +6,28 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprite>sprites\spr_mbunny_idle</sprite>
-    <sprite>sprites\spr_mbunny_hop</sprite>
-    <sprite>sprites\spr_shadow</sprite>
-    <sprite>sprites\spr_player</sprite>
-    <sprite>sprites\spr_player_turning</sprite>
+    <sprites name="Player">
+      <sprite>sprites\spr_player</sprite>
+      <sprite>sprites\spr_player_turning</sprite>
+    </sprites>
+    <sprites name="Effects">
+      <sprites name="Flame">
+        <sprite>sprites\spr_effect_flame_orb</sprite>
+        <sprite>sprites\spr_effect_flame_bigbloom</sprite>
+        <sprite>sprites\spr_effect_flame_smallbloom</sprite>
+        <sprite>sprites\spr_effect_flame_spawnfire</sprite>
+      </sprites>
+      <sprite>sprites\spr_dust</sprite>
+      <sprite>sprites\spr_shadow</sprite>
+      <sprite>sprites\spr_glare</sprite>
+    </sprites>
+    <sprites name="Enemies">
+      <sprites name="Bunny">
+        <sprite>sprites\spr_mbunny_idle</sprite>
+        <sprite>sprites\spr_mbunny_hop</sprite>
+      </sprites>
+    </sprites>
     <sprite>sprites\spr_grass</sprite>
-    <sprite>sprites\spr_player_projectile</sprite>
-    <sprite>sprites\spr_dust</sprite>
-    <sprite>sprites\spr_glare</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\ts_grass</background>
@@ -53,33 +66,38 @@
       <object>objects\obj_global_variables</object>
       <object>objects\obj_controller</object>
       <object>objects\obj_camera</object>
+      <object>objects\obj_score_keeper</object>
     </objects>
     <objects name="Player">
-      <object>objects\obj_dust</object>
-      <object>objects\obj_player</object>
-      <object>objects\obj_quickturn_image</object>
       <objects name="Circle Rite">
         <object>objects\obj_rite_completion</object>
         <object>objects\obj_rite_damage</object>
-        <object>objects\obj_rite_flare</object>
+        <object>objects\obj_player_projectile</object>
       </objects>
-      <objects name="Enemies">
-        <object>objects\obj_enemy</object>
-      </objects>
+      <object>objects\obj_player</object>
     </objects>
-    <object>objects\test</object>
-    <object>objects\obj__temp</object>
-    <object>objects\obj_player_projectile</object>
-    <object>objects\obj_score_keeper</object>
-    <object>objects\obj_teleport_charge</object>
+    <objects name="Enemies">
+      <object>objects\obj_enemy</object>
+    </objects>
+    <objects name="Effects">
+      <object>objects\obj_parent_effect</object>
+      <object>objects\obj_effect_flame_bigbloom</object>
+      <object>objects\obj_effect_flame_smallbloom</object>
+      <object>objects\obj_effect_flame_spawnfire</object>
+      <object>objects\obj_teleport_charge</object>
+      <object>objects\obj_dust</object>
+      <object>objects\obj_quickturn_image</object>
+    </objects>
+    <object>objects\obj_temp</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\global_variable_init</room>
     <room>rooms\room0</room>
   </rooms>
-  <constants number="2">
+  <constants number="3">
     <constant name="gamesteps">obj_controller.gametime</constant>
     <constant name="g">global</constant>
+    <constant name="anim_speed">10/60</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>
