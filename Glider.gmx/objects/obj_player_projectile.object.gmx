@@ -149,10 +149,10 @@ if (death != 2) {
     //draw_clear_alpha(c_white,0);
     size = ds_list_size(trail_coords);
     for(i = 1; i &lt; size; i++) {
-        draw_set_color(merge_colour(c_yellow,c_white,i/size));
+        draw_set_color(merge_colour(c_orange,c_white,i/size));
         var coords = ds_list_find_value(trail_coords,i);
         var coords_last = ds_list_find_value(trail_coords,i-1);
-        draw_line_width(coords[0],coords[1],coords_last[0],coords_last[1],6*(i/size));
+        draw_line_width(coords[0],coords[1],coords_last[0],coords_last[1],6*(i/size)*random_range(0,1)+dsin(gamesteps)*0.5+0.5);
     }
 //surface_reset_target();
 

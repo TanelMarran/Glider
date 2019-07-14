@@ -71,6 +71,7 @@
     <object>objects\obj__temp</object>
     <object>objects\obj_player_projectile</object>
     <object>objects\obj_score_keeper</object>
+    <object>objects\obj_teleport_charge</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\global_variable_init</room>

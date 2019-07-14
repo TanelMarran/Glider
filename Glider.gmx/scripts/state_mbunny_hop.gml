@@ -1,6 +1,6 @@
 if irandom(240) = 1 && sprite_index = spr_mbunny_idle {
     sprite_index = spr_mbunny_hop
-    image_speed = image_speed*0.5
+    image_speed = image_speed*0.8
     image_index = 0
 }
 

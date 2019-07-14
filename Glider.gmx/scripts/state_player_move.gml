@@ -52,12 +52,13 @@ if hook_active = true {
             }
             hook_stretching_time++;
             movement_speed = movement_speed*0.9;
+            dir = angle_to_center;
+            dir_change = 0;
             if (movement_speed < 0.1*hook_stretching or quickturn_check) {
                 hook_time = 0
                 hook_active = false
                 movement_speed = hook_stretching
                 hook_stretching = 0
-                dir = angle_to_center
                 dir_act = dir
                 hook_stretching_time = 0;
                 if(quickturn_check) {
