@@ -104,6 +104,7 @@ if( irandom(20) == 1) {
 if (death == 2 &amp;&amp; ds_list_size(trail_coords) == 0) {
     instance_destroy();
 }
+depth = -y*10;
 </string>
           </argument>
         </arguments>

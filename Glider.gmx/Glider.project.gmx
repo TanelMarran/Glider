@@ -25,6 +25,7 @@
       <sprites name="Bunny">
         <sprite>sprites\spr_mbunny_idle</sprite>
         <sprite>sprites\spr_mbunny_hop</sprite>
+        <sprite>sprites\spr_bunny_shadow</sprite>
       </sprites>
     </sprites>
     <sprite>sprites\spr_grass</sprite>
@@ -94,7 +95,8 @@
     <room>rooms\global_variable_init</room>
     <room>rooms\room0</room>
   </rooms>
-  <constants number="3">
+  <constants number="4">
+    <constant name="color_flame">make_color_rgb(4,255,30)</constant>
     <constant name="gamesteps">obj_controller.gametime</constant>
     <constant name="g">global</constant>
     <constant name="anim_speed">10/60</constant>

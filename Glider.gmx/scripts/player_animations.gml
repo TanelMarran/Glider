@@ -20,7 +20,9 @@ if(hook_circling) { //Turning
 }
 
 //Draw shadow
+draw_set_alpha(0.1);
 draw_sprite(spr_shadow,0,x,y);
+draw_set_alpha(1);
 
 //Draw player
 var uniform_ColorFactor = shader_get_uniform(shd_pureWhite,"ColorFactor");

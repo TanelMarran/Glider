@@ -6,7 +6,7 @@
   <depth>0</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
-  <maskName>spr_shadow</maskName>
+  <maskName>spr_bunny_shadow</maskName>
   <events>
     <event eventtype="0" enumb="0">
       <action>
@@ -219,8 +219,10 @@ depth = -y
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite(spr_shadow,0,x,y)
-draw_self()
+            <string>draw_set_alpha(0.1);
+draw_sprite(spr_bunny_shadow,0,x,y);
+draw_set_alpha(1);
+draw_self();
 </string>
           </argument>
         </arguments>

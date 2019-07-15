@@ -274,7 +274,7 @@ if(value_in_range(hook_stretching_time,array(1,15))) {
             <string>///Draw the current radius of the player's circling
 
 draw_set_alpha(clamp(0.3*hook_time/5,0,0.3))
-draw_set_color(c_black)
+draw_set_color(merge_color(c_black,color_flame,0.7));
 //if hook_active = true {
     for(var i = 0; i &lt; 361; i = i+6) {
         var s = sign(angle_difference(point_direction(0,0,axis_x,axis_y),point_direction(x,y,hook_x,hook_y)))
