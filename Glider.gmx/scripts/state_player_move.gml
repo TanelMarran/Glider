@@ -69,7 +69,7 @@ if hook_active = true {
                 //Set a variable that shows if the player failed the quickturn tech this time
             }
         } else { //...otherwise start circling
-            dir_change = min(180,dir_change+(power(movement_speed,1.2)/power(hook_radius,0.5))/*(power(1.1,dir_change_first))!*/)
+            dir_change = min(180,dir_change+(power(movement_speed,1.8)/power(hook_radius,0.5))/*(power(1.1,dir_change_first))!*/)
             dir = point_direction(x,y,an_x,an_y);
             hook_circling = true;
             hook_circling_dir = -sign(angle_difference(dir,angle_to_center)); //Set which way were circling
@@ -77,6 +77,16 @@ if hook_active = true {
     }
 } else {
     dir = dir_act;
+}
+
+//Defeat player
+with(instance_place(x,y,obj_enemy)) {
+    if(targeted_by == noone) {
+        obj_player.death_source = id;
+        other.player_state = state_player_falling;
+        image_index = 0;
+        g.freeze = 30;
+    }
 }
 
 //Apply movement
@@ -90,7 +100,7 @@ y = y+axis_y
 
 if hook_active = true {
     hook_time++
-    movement_speed += max(0,circling_start_boost_time-hook_time)*power(0.15,max(1,circling_start_boost_time-hook_time)) //Add speedboost at the start of circling
+    //movement_speed += max(0,circling_start_boost_time-hook_time)*power(0.15,max(1,circling_start_boost_time-hook_time)) //Add speedboost at the start of circling
     if hook_rite = noone && hook_stretching = 0 && hook_radius_act >= hook_radius {
         with(instance_create(hook_x,hook_y,obj_rite_completion)) {
             hook_radius = other.hook_radius

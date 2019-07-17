@@ -9,6 +9,7 @@
     <sprites name="Player">
       <sprite>sprites\spr_player</sprite>
       <sprite>sprites\spr_player_turning</sprite>
+      <sprite>sprites\spr_player_defeated_down</sprite>
     </sprites>
     <sprites name="Effects">
       <sprites name="Flame">
@@ -37,21 +38,35 @@
     <path>paths\path0</path>
   </paths>
   <scripts name="scripts">
-    <script>scripts\state_player_move.gml</script>
-    <script>scripts\movement_logic.gml</script>
-    <script>scripts\scarf_logic.gml</script>
-    <script>scripts\create_scarf.gml</script>
-    <script>scripts\state_mbunny_hop.gml</script>
-    <script>scripts\draw_text_circle.gml</script>
-    <script>scripts\draw_cylinder_2r.gml</script>
+    <scripts name="Player">
+      <script>scripts\state_player_move.gml</script>
+      <script>scripts\player_animations.gml</script>
+      <script>scripts\state_player_falling.gml</script>
+    </scripts>
+    <scripts name="Draw">
+      <script>scripts\draw_cylinder_2r.gml</script>
+      <script>scripts\draw_text_circle.gml</script>
+      <script>scripts\draw_highlighted.gml</script>
+    </scripts>
+    <scripts name="Image Tween">
+      <script>scripts\init_image_tween.gml</script>
+      <script>scripts\endstep_image_tween.gml</script>
+    </scripts>
+    <scripts name="Movement">
+      <script>scripts\init_movement.gml</script>
+      <script>scripts\movement_logic.gml</script>
+    </scripts>
+    <scripts name="Enemies">
+      <scripts name="Bunny">
+        <script>scripts\state_mbunny_hop.gml</script>
+      </scripts>
+    </scripts>
     <script>scripts\smoothstep.gml</script>
-    <script>scripts\player_animations.gml</script>
     <script>scripts\loop_value_range.gml</script>
     <script>scripts\array.gml</script>
     <script>scripts\value_in_range.gml</script>
     <script>scripts\bezier_point.gml</script>
     <script>scripts\curvestep.gml</script>
-    <script>scripts\init_movement.gml</script>
     <script>scripts\create_particle_dust.gml</script>
     <script>scripts\add_score.gml</script>
   </scripts>

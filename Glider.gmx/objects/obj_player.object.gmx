@@ -81,6 +81,8 @@ dir_change = 5 //How fast the player is turning (?)
 
 invincibility = 0 // if greater than 0, then the player is invincible.
 
+death_source = noone; //Saves the object id of what defeated the player
+
 ///These 3 seem uselss?
 //hook_rite_start = 0
 //hook_rite_current = noone
@@ -105,8 +107,54 @@ invincibility = 0 // if greater than 0, then the player is invincible.
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>///Image tween
+init_image_tween();
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>///Create objects
 instance_create(x,y,obj_teleport_charge);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Image tween
+endstep_image_tween();
 </string>
           </argument>
         </arguments>
@@ -216,14 +264,6 @@ script_execute(player_state)
 if keyboard_check_pressed(ord("R")) {
     game_restart()
 }
-with(instance_place(x,y,obj_enemy)) {
-    if(targeted_by == noone) {
-        game_restart();
-    }
-}
-
-image_speed = 0
-image_index = round(dir_act/45)
 </string>
           </argument>
         </arguments>

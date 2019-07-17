@@ -49,8 +49,7 @@ points_granted = 10; //How many points this enemy grants on purification
 state = state_mbunny_hop
 targeted_by = noone;
 
-image_tween = 0
-image_index_last = 0
+init_image_tween();
 </string>
           </argument>
         </arguments>
@@ -119,13 +118,7 @@ if (g.freeze != 0) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Image tween
-image_tween = noone
-if floor(image_index) != floor(image_index_last) {
-    image_tween = floor(image_index)
-}
-
-image_index_last = image_index
+            <string>endstep_image_tween();
 </string>
           </argument>
         </arguments>
