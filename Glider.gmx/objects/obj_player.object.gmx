@@ -285,7 +285,7 @@ if keyboard_check_pressed(ord("R")) {
           <argument>
             <kind>1</kind>
             <string>///Draw smoke on quickturn
-if(value_in_range(hook_stretching_time,array(1,15))) {
+if(value_in_range(hook_stretching_time,array(1,15)) &amp;&amp; player_state = state_player_move) {
     var s = 1/movement_speed*movement_speed*2
     dust = create_particle_dust(x+lengthdir_x(s,dir_act),y+lengthdir_y(s,dir_act),dir_act,s,15,0.05,0.5,15*movement_speed);
 }
@@ -312,21 +312,20 @@ if(value_in_range(hook_stretching_time,array(1,15))) {
           <argument>
             <kind>1</kind>
             <string>///Draw the current radius of the player's circling
-
-draw_set_alpha(clamp(0.3*hook_time/5,0,0.3))
-draw_set_color(merge_color(c_black,color_flame,0.7));
-//if hook_active = true {
-    for(var i = 0; i &lt; 361; i = i+6) {
-        var s = sign(angle_difference(point_direction(0,0,axis_x,axis_y),point_direction(x,y,hook_x,hook_y)))
-        var xx1 = dcos(obj_controller.gametime*s*0.5+max(0,i-4))*hook_radius
-        var yy1 = -dsin(obj_controller.gametime*s*0.5+max(0,i-4))*hook_radius
-        var xx2 = dcos(obj_controller.gametime*s*0.5+max(0,i))*hook_radius
-        var yy2 = -dsin(obj_controller.gametime*s*0.5+max(0,i))*hook_radius
-        draw_line_width(hook_x+xx1,hook_y+yy1,hook_x+xx2,hook_y+yy2,2)
-    }
-//}
-draw_set_alpha(1)
-
+if (player_state = state_player_move) {
+    draw_set_alpha(clamp(0.3*hook_time/5,0,0.3))
+    draw_set_color(merge_color(c_black,color_flame,0.7));
+    
+        for(var i = 0; i &lt; 361; i = i+6) {
+            var s = sign(angle_difference(point_direction(0,0,axis_x,axis_y),point_direction(x,y,hook_x,hook_y)))
+            var xx1 = dcos(obj_controller.gametime*s*0.5+max(0,i-4))*hook_radius
+            var yy1 = -dsin(obj_controller.gametime*s*0.5+max(0,i-4))*hook_radius
+            var xx2 = dcos(obj_controller.gametime*s*0.5+max(0,i))*hook_radius
+            var yy2 = -dsin(obj_controller.gametime*s*0.5+max(0,i))*hook_radius
+            draw_line_width(hook_x+xx1,hook_y+yy1,hook_x+xx2,hook_y+yy2,2)
+        }
+    draw_set_alpha(1)
+}
 </string>
           </argument>
         </arguments>

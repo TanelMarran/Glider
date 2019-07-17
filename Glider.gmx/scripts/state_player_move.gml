@@ -84,7 +84,7 @@ with(instance_place(x,y,obj_enemy)) {
     if(targeted_by == noone) {
         obj_player.death_source = id;
         other.player_state = state_player_falling;
-        image_index = 0;
+        other.image_index = 0;
         g.freeze = 30;
     }
 }

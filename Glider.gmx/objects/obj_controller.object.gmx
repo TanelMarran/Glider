@@ -248,8 +248,8 @@ if(debug_mode == true or show_variables) {
                     "hook_time: " + string(obj_player.hook_time),
                     "hook_radius: " + string(obj_player.hook_radius),
                     "hook_circling: " + string(obj_player.hook_circling),
-                    "hook_circling_dir: " + string(obj_player.hook_circling_dir)
-                    
+                    "hook_circling_dir: " + string(obj_player.hook_circling_dir),
+                    "image_index: " + string(obj_player.image_index)
                     );
     
     for(i = 0; i &lt; array_length_1d(variables); i++) {
@@ -261,7 +261,7 @@ if(debug_mode == true or show_variables) {
     draw_set_color(c_teal);
     draw_arrow(p.x,p.y,p.x+dcos(p.dir)*length,p.y-dsin(p.dir)*length,4);
     draw_set_color(c_aqua)
-     draw_arrow(p.x,p.y,p.x+dcos(p.dir_act)*length,p.y-dsin(p.dir_act)*length,4);
+    draw_arrow(p.x,p.y,p.x+dcos(p.dir_act)*length,p.y-dsin(p.dir_act)*length,4);
 }
 </string>
           </argument>

@@ -110,7 +110,7 @@ if death_time &lt; death_max { //If the circle's death counter has started, then
     death_time--
 }
 
-if mouse_check_button_released(mb_left) {
+if mouse_check_button_released(mb_left) or obj_player.player_state = state_player_falling {
     obj_player.hook_rite = noone
     death_time-- //The player has stopped circling. Starts the death countdown. Destroy the circle in a few frames time.
 }
@@ -167,6 +167,28 @@ if (g.freeze != 0) {
             <kind>1</kind>
             <string>///Save the value of the last angle the player was in in relation to the circle
 hook_rite_last = point_direction(x,y,obj_player.x,obj_player.y)
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Destroy self if player got defeated
+
 </string>
           </argument>
         </arguments>
