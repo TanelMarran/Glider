@@ -24,7 +24,7 @@ if (player_state == state_player_move) {
 //Player defeated
 if(player_state == state_player_falling) {
     sprite_index = spr_player_defeated_down;
-    image_xscale = 1;
+    image_xscale = (abs(angle_difference(dir_act,0)) > 90)*2-1;
     if (image_index > 8) {
         image_speed = 0;
     } else {
