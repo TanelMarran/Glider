@@ -200,8 +200,8 @@ zoom = max(0.1,zoom)
           <argument>
             <kind>1</kind>
             <string>///Draw Screen
-view_wview[0] = 640*max(1,zoom);
-view_hview[0] = 360*max(1,zoom);
+view_wview[0] = 640*1/min(1,zoom);
+view_hview[0] = 360*1/min(1,zoom);
 
 global.window_w=window_get_width();
 global.window_h=window_get_height();
@@ -209,11 +209,8 @@ global.window_h=window_get_height();
 //global.window_scale = min((global.window_w/view_wview[0]),(global.window_h/view_hview[0]))
 global.window_scale = min(floor(global.window_w/view_wport[0]),floor(global.window_h/view_hport[0]))
 
-//view_wport[0] = view_wview[0]
-//view_hport[0] = view_hview[0]
-
-global.window_xoff=(global.window_w-view_wport[0]*global.window_scale*1/min(1,zoom))/2
-global.window_yoff=(global.window_h-view_hport[0]*global.window_scale*1/min(1,zoom))/2
+global.window_xoff=round(global.window_w-view_wport[0]*global.window_scale*max(1,zoom))/2
+global.window_yoff=round(global.window_h-view_hport[0]*global.window_scale*max(1,zoom))/2
 
 if frac(global.window_scale) = 0 {
     texture_set_interpolation(false)
@@ -221,8 +218,20 @@ if frac(global.window_scale) = 0 {
     texture_set_interpolation(true)
 }
 
-draw_surface_ext(application_surface,round(global.window_xoff),round(global.window_yoff),global.window_scale*1/min(1,zoom),global.window_scale*1/min(1,zoom),0,c_white,1);
+draw_surface_ext(application_surface,global.window_xoff,global.window_yoff,global.window_scale*max(1,zoom),global.window_scale*max(1,zoom),0,c_white,1);
 
+var width = global.window_scale*view_wport[0];
+var zoomin_percent = 1/max(1,obj_controller.zoom);
+var window_xoff = (global.window_w-view_wport[0]*global.window_scale)/2;
+g.mouseX = view_xview[0]+(1-zoomin_percent)*0.5*view_wview[0]+
+        (clamp(window_mouse_get_x(),window_xoff,window_xoff+width)-window_xoff)/width*view_wview[0]*zoomin_percent;
+        
+var height = global.window_scale*view_hport[0];
+var window_yoff = (global.window_h-view_hport[0]*global.window_scale)/2;
+g.mouseY = view_yview[0]+(1-zoomin_percent)*0.5*view_hview[0]+
+        (clamp(window_mouse_get_y(),window_yoff,window_yoff+height)-window_yoff)/height*view_hview[0]*zoomin_percent;
+        
+show_debug_message(string((clamp(window_mouse_get_y(),window_yoff,window_yoff+height)-window_yoff)/height));
 </string>
           </argument>
         </arguments>

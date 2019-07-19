@@ -27,6 +27,8 @@
             <kind>1</kind>
             <string>///Global variables
 g.freeze = 0;
+g.mouseX = 0;
+g.mouseY = 0;
 
 room_goto_next();
 

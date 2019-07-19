@@ -69,6 +69,8 @@
     <script>scripts\curvestep.gml</script>
     <script>scripts\create_particle_dust.gml</script>
     <script>scripts\add_score.gml</script>
+    <script>scripts\get_mouse_x.gml</script>
+    <script>scripts\get_mouse_y.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shd_RemoveWhite.shader</shader>
@@ -105,6 +107,7 @@
       <object>objects\obj_quickturn_image</object>
     </objects>
     <object>objects\obj_temp</object>
+    <object>objects\test</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\global_variable_init</room>
