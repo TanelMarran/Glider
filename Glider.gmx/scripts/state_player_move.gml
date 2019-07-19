@@ -15,8 +15,8 @@ movement_speed = movement_speed+
 
 //Apply the grapple point
 if mouse_check_button_pressed(mb_left) && hook_active = false {
-    hook_x = mouse_x
-    hook_y = mouse_y
+    hook_x = get_mouse_x()
+    hook_y = get_mouse_y()
     hook_radius = max(point_distance(x,y,hook_x,hook_y)+1,20)
     hook_active = true
     hook_time = 0

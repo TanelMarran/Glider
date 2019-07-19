@@ -100,8 +100,8 @@ if (g.freeze != 0) {
           <argument>
             <kind>1</kind>
             <string>///Move camera object towards player
-x = round(obj_player.x+dcos(point_direction(x,y,mouse_x,mouse_y))*point_distance(x,y,mouse_x,mouse_y)*0.1)
-y = round(obj_player.y-dsin(point_direction(x,y,mouse_x,mouse_y))*point_distance(x,y,mouse_x,mouse_y)*0.1)
+x = round(obj_player.x+dcos(point_direction(x,y,get_mouse_x(),get_mouse_y()))*point_distance(x,y,get_mouse_x(),get_mouse_y())*0.1)
+y = round(obj_player.y-dsin(point_direction(x,y,get_mouse_x(),get_mouse_y()))*point_distance(x,y,get_mouse_x(),get_mouse_y())*0.1)
 </string>
           </argument>
         </arguments>

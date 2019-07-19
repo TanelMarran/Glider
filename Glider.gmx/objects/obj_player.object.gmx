@@ -231,7 +231,7 @@ depth = -y
 if(mouse_check_button_pressed(mb_right)) {
         with(instance_create(obj_player.x,obj_player.y,obj_player_projectile)) {
             start_coord = array(other.x,other.y);
-            target_coord = array(mouse_x,mouse_y);
+            target_coord = array(get_mouse_x(),get_mouse_y());
             interm_coord = array(
                                 lerp(start_coord[0],target_coord[0],0.05),
                                 lerp(start_coord[1],target_coord[1],0.05)-path_height
@@ -384,8 +384,8 @@ for(var i = 0; i &lt; array_length_1d(arr); i++) {
 
 for(i = 0; i &lt;= 1; i += 0.01)  {
     v = 10;
-    var point =  bezier_point(x,y,(mouse_x+x)*0.5,(mouse_y+y)*0.5-200,mouse_x,mouse_y,i);
-    var pointl = bezier_point(x,y,(mouse_x+x)*0.5,(mouse_y+y)*0.5-200,mouse_x,mouse_y,max(0,i-0.01));
+    var point =  bezier_point(x,y,(get_mouse_x()+x)*0.5,(get_mouse_y()+y)*0.5-200,get_mouse_x(),get_mouse_y(),i);
+    var pointl = bezier_point(x,y,(get_mouse_x()+x)*0.5,(get_mouse_y()+y)*0.5-200,get_mouse_x(),get_mouse_y(),max(0,i-0.01));
     draw_line(point[0],point[1],pointl[0],pointl[1]);
 }
 
